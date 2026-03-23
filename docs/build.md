@@ -547,6 +547,24 @@ cmake -B build -DGGML_VULKAN=1 -DGGML_METAL=OFF
 cmake --build build --config Release
 ```
 
+### For Windows users:
+
+You can only use Ninja other then "Visual Studio" to compilling it because the CUDA toolchain can be not find by cmake.
+
+You must startup cmd by "x64 Native Tools Command Prompt for VS 2022" of Visual Studio". Then, change path to llama.cpp folder to run the following comman:
+
+```
+cmake -Bbuild -G"Ninja" ^
+  -DGGML_CUDA=ON ^
+  -DGGML_NATIVE=ON ^
+  -DGGML_AVX2=ON ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_CUDA_COMPILER="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/nvcc.exe"
+  
+:: cmake -Bbuild -G"Visual Studio 17 2022" -Ax64 -DGGML_CUDA=ON
+cmake --build build --config Release
+```
+
 ## CANN
 This provides NPU acceleration using the AI cores of your Ascend NPU. And [CANN](https://www.hiascend.com/en/software/cann) is a hierarchical APIs to help you to quickly build AI applications and service based on Ascend NPU.
 
