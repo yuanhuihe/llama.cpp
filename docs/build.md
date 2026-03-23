@@ -565,6 +565,12 @@ cmake -Bbuild -G"Ninja" ^
 cmake --build build --config Release
 ```
 
+Ninja installing by cmd:
+
+```
+winget install Ninja-build.Ninja
+```
+
 ## CANN
 This provides NPU acceleration using the AI cores of your Ascend NPU. And [CANN](https://www.hiascend.com/en/software/cann) is a hierarchical APIs to help you to quickly build AI applications and service based on Ascend NPU.
 
